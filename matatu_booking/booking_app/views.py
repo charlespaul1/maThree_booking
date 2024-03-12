@@ -8,10 +8,10 @@ def home(request):
         email = request.POST['email']
         password = request.POST['password']
         # authenticate the user
-        user = authenticate(request, email=email, password=password)
+        user = authenticate(request, username=username, email=email, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request,'login successfull')
+            messages.success(request,'login was successfull')
             return redirect('home')
         else:
             messages.success(request, 'Log in Error, Please try again....')
