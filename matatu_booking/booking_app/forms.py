@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 class SignUpForm(UserCreationForm):
+    username = forms.CharField(label='', max_length='50', widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Username'}))
     first_name = forms.CharField(label='', max_length='50', widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'First name'}))
     last_name = forms.CharField(label='',max_length='50', widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Last name'}))
     email = forms.EmailField(label='', widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}))
@@ -18,7 +19,7 @@ class SignUpForm(UserCreationForm):
             self.fields['username'].widget.attrs['class'] = 'form-control'
             self.fields['username'].widget.attrs['placeholder'] = 'User Name'
             self.fields['username'].label = ''
-            self.fields['username'].help_text = '<span class="form-text text-muted"><small>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small></span>'
+            self.fields['username'].help_text = '<span class="form-text text-muted"><small>Required.50 characters or fewer. Letters, digits and @/./+/-/_ only.</small></span>'
 
             self.fields['password1'].widget.attrs['class'] = 'form-control'
             self.fields['password1'].widget.attrs['placeholder'] = 'Password'
