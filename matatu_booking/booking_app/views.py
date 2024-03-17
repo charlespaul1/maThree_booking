@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm
+from .models import MatatuRoute
 
 def home(request):
     # check to see if user is logging in
@@ -50,4 +51,8 @@ def register_user(request):
     return render(request, 'register.html', {'form':form})
     
     
+
+def matatu_route_list(request):
+    routes = MatatuRoute.objects.all()
+    return render(request, 'matatu_route_list.html', {'routes':routes})
     

@@ -1,14 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 class MatatuRoute(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    route_name = models.CharField(max_length=50)
     starting_point = models.CharField(max_length=50)
     destination = models.CharField(max_length=50)
     fare = models.DecimalField(max_digits=10, decimal_places=2)
     
     def __str__(self):
-        return (f'{self.first_name} - {self.last_name}')
+        return (f'{self.route_name} - {self.starting_point} to {self.destination}')
     
     
 class Booking(models.Model):
@@ -19,5 +18,5 @@ class Booking(models.Model):
     seat_number = models.IntegerField()
     
     def __str__(self):
-        return (f'{self.username} - {self.route.name} - Seat {self.seat_number}')
+        return (f'{self.username} - {self.route_name} - Seat {self.seat_number}')
     
