@@ -6,17 +6,30 @@
     <title>Shuttle Routes</title>
 </head>
 <body>
-    <ul>
-        
-        {% for route in routes  %}
-        <li>
-           
-            {{ route.name }} - {{ route.starting_point }} to  {{ route.destination }} - (Fare:  {{route.fare}} )
-        </li>
-            
-        {% endfor %}
-            
-    </ul>
+    <div class="col-md-6 offset-md-3
     
+    
+    ">
+            <table class="table table-striped table-hover table-secondary">
+                <thead>
+                    <tr>
+                        <!-- <th>#</th> -->
+                        <th>starting_point</th>
+                        <th>Destination</th>
+                        <th>Fare</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for route in routes %}
+                    <tr class="table-info">
+                    <td>{{ route.starting_point }}</td>
+                    <td>{{ route.destination }}</td>
+                    <td>{{ route.fare }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 </body>
 </html>
